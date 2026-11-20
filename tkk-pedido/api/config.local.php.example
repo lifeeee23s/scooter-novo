@@ -1,8 +1,0 @@
-<?php
-declare(strict_types=1);
-
-// Copie para config.local.php no servidor e substitua pela chave secreta do painel Paradise.
-define('PARADISE_API_KEY', 'COLE_SUA_CHAVE_AQUI');
-// Opcionais. Configure apenas se já houver um webhook HTTPS implantado.
-// define('PARADISE_POSTBACK_URL', 'https://checkout.example/webhooks/paradise');
-// define('PARADISE_WEBHOOK_SECRET', 'GERE_UM_SEGREDO_ALEATORIO');
