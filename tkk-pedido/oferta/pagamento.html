@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><script>window.__TKK_BASE_PATH__="/tkk-pedido";</script><script src="/tkk-pedido/clone-runtime.js"></script><script src="/tkk-pedido/attribution-runtime.js"></script><script src="/tkk-pedido/tracking-runtime.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous"></script><script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Código do pagamento - Busca Busca</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>">
+
+  <link rel="preload" href="/tkk-pedido/oferta-assets/ShopeeSans-Regular.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="/tkk-pedido/oferta-assets/ShopeeSans-Bold.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="stylesheet" href="/tkk-pedido/_external/cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <noscript>
+    <link rel="stylesheet" href="/tkk-pedido/_external/cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  </noscript>
+  <!-- Microsoft Clarity -->
+  
+  
+  
+
+  <style>
+    @font-face {
+      font-family: 'TikTok';
+      src: url('/tkk-pedido/oferta-assets/ShopeeSans-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'TikTok';
+      src: url('/tkk-pedido/oferta-assets/ShopeeSans-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'TikTok';
+      src: url('/tkk-pedido/oferta-assets/ShopeeSans-Semibold.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'TikTok';
+      src: url('/tkk-pedido/oferta-assets/ShopeeSans-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: auto !important;
+      overflow-x: hidden;
+      overflow-y: auto !important;
+      background-color: #e5e7eb;
+      color: #000000;
+      font-family: 'TikTok', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Container mobile-first centralizado (evita esticamento no desktop) */
+    .pix-page-shell {
+      width: 100%;
+      max-width: 480px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background-color: #F5F5F5;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.06);
+    }
+
+    /* ===== Bolinhas de Carregamento TikTok rápidas e sem bloquear leitura ===== */
+    #tiktok-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.18);
+      pointer-events: none;
+    }
+
+    .tiktok-loader-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      border-radius: 16px;
+      padding: 24px 32px;
+      background-color: rgba(113, 111, 123, 0.95);
+    }
+
+    .tiktok-loader-dots {
+      position: relative;
+      width: 48px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tiktok-dot-pink {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 9999px;
+      background-color: #F1355C;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: tiktokSlide1 0.8s ease-in-out infinite, tiktokZIndex1 0.8s ease-in-out infinite;
+    }
+
+    .tiktok-dot-cyan {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 9999px;
+      background-color: #44D1D7;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: tiktokSlide2 0.8s ease-in-out infinite, tiktokZIndex2 0.8s ease-in-out infinite;
+    }
+
+    .tiktok-loader-text {
+      color: #e5e7eb;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.025em;
+      line-height: 1.5;
+    }
+
+    @keyframes tiktokSlide1 {
+
+      0%,
+      100% {
+        transform: translate(-50%, -50%) translateX(-7px);
+      }
+
+      50% {
+        transform: translate(-50%, -50%) translateX(7px);
+      }
+    }
+
+    @keyframes tiktokSlide2 {
+
+      0%,
+      100% {
+        transform: translate(-50%, -50%) translateX(7px);
+      }
+
+      50% {
+        transform: translate(-50%, -50%) translateX(-7px);
+      }
+    }
+
+    @keyframes tiktokZIndex1 {
+
+      0%,
+      49% {
+        z-index: 1;
+      }
+
+      50%,
+      100% {
+        z-index: 2;
+      }
+    }
+
+    @keyframes tiktokZIndex2 {
+
+      0%,
+      49% {
+        z-index: 2;
+      }
+
+      50%,
+      100% {
+        z-index: 1;
+      }
+    }
+
+    @keyframes spinRing {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ===== Header ===== */
+    .pix-topbar {
+      background-color: #ffffff;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .pix-back-btn {
+      margin-right: 12px;
+      background: none;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pix-topbar-title {
+      margin: 0;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 600;
+      color: #000000;
+    }
+
+    /* ===== Main Content ===== */
+    .pix-main-body {
+      flex: 1;
+      padding: 16px;
+    }
+
+    .ref-card {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    /* ===== Card 1: Resumo do pedido ===== */
+    .summary-card {
+      margin-top: 16px;
+    }
+
+    .summary-heading {
+      margin: 0 0 12px 0;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600;
+      color: #000000;
+    }
+
+    .summary-main-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .summary-main-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 4px;
+      margin-right: 12px;
+      flex-shrink: 0;
+      background: #ffffff;
+    }
+
+    .summary-main-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .summary-main-name {
+      margin: 0 0 4px 0;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+      color: #000000;
+    }
+
+    .summary-main-variant {
+      margin: 0 0 4px 0;
+      font-size: 12px;
+      line-height: 16px;
+      color: #6b7280;
+    }
+
+    .summary-main-price {
+      margin: 0;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 600;
+      color: #F52B56;
+    }
+
+    /* Order Bumps / Itens extras no Resumo */
+    .summary-extra-wrap {
+      border-top: 1px solid #e5e7eb;
+      padding: 12px 0;
+    }
+
+    .summary-extra-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .summary-extra-img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      border-radius: 4px;
+      flex-shrink: 0;
+      background: #ffffff;
+    }
+
+    .summary-extra-name {
+      margin: 0;
+      font-size: 14px;
+      line-height: 20px;
+      color: #000000;
+    }
+
+    .summary-extra-qty {
+      margin: 0;
+      font-size: 12px;
+      line-height: 16px;
+      color: #6b7280;
+    }
+
+    .summary-extra-price {
+      margin: 0;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+      color: #F52B56;
+    }
+
+    .summary-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 12px;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600;
+      color: #000000;
+    }
+
+    .summary-total-val {
+      color: #F52B56;
+    }
+
+    /* Estimativa de entrega */
+    .summary-shipping-box {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 12px;
+    }
+
+    .summary-shipping-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .summary-shipping-left {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      line-height: 20px;
+      color: #374151;
+      font-weight: 400;
+    }
+
+    .summary-shipping-left i {
+      color: #4b5563;
+      margin-right: 8px;
+      font-size: 14px;
+    }
+
+    .summary-shipping-days {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+      color: #111827;
+    }
+
+    .summary-carrier-row {
+      display: flex;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .summary-carrier-label {
+      font-size: 12px;
+      line-height: 16px;
+      color: #6b7280;
+      margin-right: 8px;
+      font-weight: 400;
+    }
+
+    .summary-carrier-logo {
+      height: 20px;
+      object-fit: contain;
+    }
+
+    /* ===== Card 2: Dados de entrega ===== */
+    .delivery-card {
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    .delivery-heading {
+      margin: 0 0 12px 0;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600;
+      color: #000000;
+    }
+
+    .delivery-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .delivery-field-label {
+      margin: 0;
+      font-size: 12px;
+      line-height: 16px;
+      color: #6b7280;
+    }
+
+    .delivery-field-value {
+      margin: 0;
+      font-size: 14px;
+      line-height: 20px;
+      color: #374151;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    /* ===== Card 3: Aguardando o pagamento + Timers ===== */
+    .status-card {
+      margin-bottom: 16px;
+    }
+
+    .status-top-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .status-title {
+      margin: 0 0 4px 0;
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 600;
+      color: #000000;
+    }
+
+    .status-amount {
+      margin: 0;
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 600;
+      color: #000000;
+    }
+
+    .status-clock-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 9999px;
+      background-color: #fb923c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .status-clock-circle i {
+      color: #ffffff;
+      font-size: 20px;
+    }
+
+    .status-expire-wrap {
+      margin-top: 12px;
+    }
+
+    .status-expire-row {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 4px;
+    }
+
+    .status-expire-label {
+      color: #4b5563;
+      font-weight: 400;
+    }
+
+    .status-expire-pill {
+      margin-left: 8px;
+      background-color: #F52B56;
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .status-deadline-line {
+      margin: 0;
+      font-size: 14px;
+      line-height: 20px;
+      color: #4b5563;
+      font-weight: 400;
+    }
+
+    .status-deadline-val {
+      color: #000000;
+      font-weight: 400;
+    }
+
+    /* Banner rosa de desconto / cronômetro */
+    .promo-timer-banner {
+      margin-top: 16px;
+      border-radius: 8px;
+      background-color: #F52B56;
+      padding: 16px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .promo-timer-title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.375;
+    }
+
+    .promo-timer-desc {
+      margin: 8px 0 0 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .promo-timer-cta {
+      margin: 8px 0 0 0;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .promo-timer-digits {
+      margin: 4px 0 0 0;
+      font-size: 30px;
+      line-height: 36px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .promo-timer-foot {
+      margin: 4px 0 0 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ===== Card 4A: Skeleton "Gerando sua transação Pix" ===== */
+    .generating-card {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      background-color: #ffffff;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .generating-spinner-wrap {
+      margin-bottom: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
+      background-color: #fff0f3;
+      color: #F52B56;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .generating-spinner-svg {
+      width: 24px;
+      height: 24px;
+      animation: spinRing 1s linear infinite;
+    }
+
+    .generating-title {
+      margin: 0;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .generating-sub {
+      margin: 4px 0 20px 0;
+      font-size: 14px;
+      line-height: 20px;
+      color: #6b7280;
+    }
+
+    .qr-preview-box {
+      position: relative;
+      width: 192px;
+      height: 192px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .qr-preview-grid {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(21, minmax(0, 1fr));
+      grid-template-rows: repeat(21, minmax(0, 1fr));
+      filter: blur(2px);
+      opacity: 0.3;
+    }
+
+    .qr-cell-dark {
+      background-color: #1f2937;
+    }
+
+    .qr-cell-light {
+      background-color: transparent;
+    }
+
+    .qr-unavailable-pill {
+      position: absolute;
+      border-radius: 9999px;
+      background-color: rgba(255, 255, 255, 0.92);
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #6b7280;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    }
+
+    .code-preview-skeleton {
+      margin-top: 20px;
+      width: 100%;
+      user-select: none;
+      border-radius: 6px;
+      background-color: #f9fafb;
+      padding: 12px;
+      text-align: left;
+    }
+
+    .code-preview-label {
+      margin: 0 0 4px 0;
+      font-size: 12px;
+      font-weight: 500;
+      color: #6b7280;
+    }
+
+    .code-preview-blur {
+      margin: 0;
+      word-break: break-all;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      line-height: 20px;
+      color: #6b7280;
+      filter: blur(2px);
+      opacity: 0.4;
+    }
+
+    .code-preview-warn {
+      margin: 12px 0 0 0;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    /* ===== Card 4B: Card PIX Ativo ===== */
+    .pix-ready-logo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .pix-ready-logo {
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .pix-ready-qr-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .pix-ready-qr-img,
+    .pix-ready-qr-wrap canvas {
+      width: 192px;
+      height: 192px;
+      object-fit: contain;
+    }
+
+    .pix-ready-code-wrap {
+      margin-bottom: 16px;
+    }
+
+    .pix-ready-code-text {
+      margin: 0 0 10px 0;
+      padding: 10px 12px;
+      background-color: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      font-size: 12px;
+      line-height: 17px;
+      color: #374151;
+      word-break: break-all;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      max-height: 76px;
+      overflow-y: auto;
+      user-select: all;
+      -webkit-user-select: all;
+    }
+
+    .pix-copy-btn {
+      width: 100%;
+      background-color: #F52B56;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: inherit;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .pix-copy-btn.copied-success {
+      background-color: #22c55e;
+    }
+
+    .pix-copy-btn i {
+      margin-right: 8px;
+    }
+
+    .pix-howto-box {
+      margin-top: 16px;
+      background-color: #f9fafb;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .pix-howto-title {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .pix-howto-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pix-howto-item {
+      display: flex;
+      align-items: flex-start;
+      font-size: 12px;
+      line-height: 16px;
+      color: #374151;
+      font-weight: 400;
+    }
+
+    .pix-howto-step {
+      background-color: #F52B56;
+      color: #ffffff;
+      border-radius: 9999px;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+      flex-shrink: 0;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* Card de Erro / Tentar novamente */
+    .pix-error-card {
+      border-radius: 8px;
+      border: 1px solid #fecaca;
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .pix-error-title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .pix-error-msg {
+      margin: 4px 0 0 0;
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+    .pix-retry-btn {
+      margin-top: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #F52B56;
+      padding: 12px 20px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .pix-back-checkout-link {
+      display: block;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #6b7280;
+      text-decoration: underline;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      font-family: inherit;
+    }
+
+    /* ===== Rodapé Preto ===== */
+    .pix-black-footer {
+      background-color: #000000;
+      padding: 24px 16px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .pix-footer-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .pix-footer-brand img {
+      width: 24px;
+      height: 24px;
+      border-radius: 9999px;
+      object-fit: cover;
+    }
+
+    .pix-footer-brand span {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.01em;
+    }
+
+    .pix-footer-copy {
+      margin: 0 0 2px 0;
+      font-size: 12px;
+      line-height: 1.35;
+      color: #6b7280;
+      font-weight: 400;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Bolinhas de carregamento estilo TikTok (idênticas à referência: 3000ms) -->
+  <div id="tiktok-loader">
+    <div class="tiktok-loader-box">
+      <div class="tiktok-loader-dots">
+        <div class="tiktok-dot-pink"></div>
+        <div class="tiktok-dot-cyan"></div>
+      </div>
+      <span class="tiktok-loader-text">Carregando...</span>
+    </div>
+  </div>
+
+  <div class="pix-page-shell">
+
+    <!-- Header -->
+    <header class="pix-topbar">
+      <button type="button" class="pix-back-btn" onclick="goBackToCheckout()" aria-label="Voltar">
+        <i class="fas fa-chevron-left" style="font-size: 18px;"></i>
+      </button>
+      <h1 class="pix-topbar-title">Código do pagamento</h1>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="pix-main-body">
+
+      <!-- Card 1: Resumo do pedido -->
+      <div class="ref-card summary-card">
+        <h3 class="summary-heading">Resumo do pedido</h3>
+
+        <div id="summary-items-container">
+          <!-- Preenchido via JS -->
+        </div>
+
+        <div class="summary-shipping-box">
+          <div class="summary-shipping-row">
+            <div class="summary-shipping-left">
+              <i class="fas fa-truck"></i>
+              <span>Estimativa de entrega</span>
+            </div>
+            <span class="summary-shipping-days">3 a 4 dias</span>
+          </div>
+          <div class="summary-carrier-row">
+            <span class="summary-carrier-label">Enviado via</span>
+            <img src="/tkk-pedido/images/bicicleta-gts/logo-jadlog.png" alt="Jadlog" class="summary-carrier-logo">
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Dados de entrega -->
+      <div class="ref-card delivery-card">
+        <h3 class="delivery-heading">Dados de entrega</h3>
+        <div id="delivery-info-container">
+          <!-- Preenchido via JS -->
+        </div>
+      </div>
+
+      <!-- Card 3: Status do Pagamento + Cronômetros -->
+      <div class="ref-card status-card">
+        <div class="status-top-row">
+          <div>
+            <h2 class="status-title" id="payment-status-heading" aria-live="polite">Aguardando o pagamento</h2>
+            <p class="status-amount" id="pix-total-price">R$ 0,00</p>
+          </div>
+          <div class="status-clock-circle">
+            <i class="fas fa-clock"></i>
+          </div>
+        </div>
+
+        <div class="status-expire-wrap" id="pix-expiration-block">
+          <div class="status-expire-row">
+            <span class="status-expire-label">Vence em</span>
+            <span class="status-expire-pill" id="pix-countdown">00:15:00</span>
+          </div>
+          <p class="status-deadline-line">
+            Prazo <span class="status-deadline-val" id="pix-deadline-date">--:--</span>
+          </p>
+        </div>
+
+        <div class="promo-timer-banner" data-testid="coin-promotion-timer">
+          <h3 class="promo-timer-title" id="promo-timer-title">Desconto liberado pelas suas 1.780 moedas</h3>
+          <p class="promo-timer-desc" id="promo-timer-desc">Você conquistou uma condição especial ao trocar suas moedas.
+          </p>
+          <p class="promo-timer-cta">Finalize o pagamento em até:</p>
+          <p class="promo-timer-digits" id="coin-promotion-countdown" role="timer">10:00</p>
+          <p class="promo-timer-foot">Aproveite o preço promocional e conclua seu pedido.</p>
+        </div>
+      </div>
+
+      <!-- Card 4: Área da Transação PIX (Gerando / Erro / QR Code + Copia e Cola) -->
+      <div id="pix-transaction-area">
+        <!-- Estado A: Gerando sua transação Pix -->
+        <section id="pix-generating-card" class="generating-card" aria-label="Pagamento via Pix" style="display: none;">
+          <div class="generating-spinner-wrap" aria-hidden="true">
+            <svg class="generating-spinner-svg" viewBox="0 0 24 24" fill="none">
+              <circle style="opacity: 0.25;" cx="12" cy="12" r="9" stroke="currentColor" stroke-width="3"></circle>
+              <path style="opacity: 0.9;" d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <div role="status" aria-live="polite" aria-atomic="true">
+            <h2 class="generating-title">Gerando sua transação Pix</h2>
+            <p class="generating-sub">Aguarde um instante. Seus dados de pagamento aparecerão aqui.</p>
+          </div>
+          <div class="qr-preview-box" aria-hidden="true">
+            <div class="qr-preview-grid" id="qr-skeleton-grid"></div>
+            <span class="qr-unavailable-pill">QR indisponível</span>
+          </div>
+          <div class="code-preview-skeleton" aria-hidden="true">
+            <p class="code-preview-label">Código Pix copia e cola</p>
+            <p class="code-preview-blur">00020101021226870014br.gov.bcb.pix2565pagamento-indisponivel
+              5204000053039865802BR</p>
+          </div>
+          <p class="code-preview-warn">Não tente escanear ou copiar esta prévia.</p>
+        </section>
+
+        <!-- Estado B: Erro ao gerar Pix -->
+        <div id="pix-error-card" class="pix-error-card" role="alert" style="display: none;">
+          <p class="pix-error-title" id="pix-error-title">Não foi possível liberar o QR Code Pix</p>
+          <p class="pix-error-msg" id="pix-error-text">Ocorreu uma instabilidade momentânea na operadora. Tente
+            novamente.</p>
+          <button type="button" id="btn-recheck-tx" class="pix-retry-btn" style="display:none; width:100%; background-color:#111827;" onclick="recheckExistingTx()">Verificar código
+            novamente</button>
+          <button type="button" id="btn-generate-tx" class="pix-retry-btn" style="width:100%;" onclick="retryGeneratePix()">Gerar novo
+            PIX</button>
+          <button type="button" class="pix-back-checkout-link" onclick="goBackToCheckout()">Voltar ao checkout e revisar
+            dados</button>
+        </div>
+
+        <!-- Estado C: QR Code + Pix Copia e Cola Ativo -->
+        <div id="pix-ready-card" class="ref-card" style="display: none;">
+          <div class="pix-ready-logo-wrap">
+            <img src="/tkk-pedido/images/bicicleta-gts/logo-pix-bacen.png" alt="PIX - Banco Central" class="pix-ready-logo">
+          </div>
+
+          <div class="pix-ready-qr-wrap" id="pix-qr-wrap" aria-label="QR Code Pix"></div>
+
+          <div class="pix-ready-code-wrap">
+            <p class="pix-ready-code-text" id="pix-code-preview">00020101021226870014br.gov...</p>
+            <input type="text" id="pix-code-text" readonly="" style="position:absolute; left:-9999px; opacity:0; pointer-events:none;" value="">
+          </div>
+
+          <button type="button" id="btn-copy-pix" class="pix-copy-btn" data-testid="button-copy-pix" onclick="copyPixCode()">
+            <i class="fas fa-copy" id="btn-copy-icon"></i>
+            <span id="btn-copy-label">Copiar</span>
+          </button>
+
+          <div class="pix-howto-box">
+            <h4 class="pix-howto-title">Como pagar com PIX Copia e Cola:</h4>
+            <ol class="pix-howto-list">
+              <li class="pix-howto-item">
+                <span class="pix-howto-step">1</span>
+                <span>Clique no botão "Copiar" acima para copiar o código PIX</span>
+              </li>
+              <li class="pix-howto-item">
+                <span class="pix-howto-step">2</span>
+                <span>Abra o app do seu banco e vá em PIX</span>
+              </li>
+              <li class="pix-howto-item">
+                <span class="pix-howto-step">3</span>
+                <span>Escolha a opção "Pix Copia e Cola" ou "Pagar com código"</span>
+              </li>
+              <li class="pix-howto-item">
+                <span class="pix-howto-step">4</span>
+                <span>Cole o código copiado e confirme o pagamento</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Rodapé Preto -->
+    <footer class="pix-black-footer">
+      <div class="pix-footer-brand">
+        <img src="/tkk-pedido/logo-busca-busca.png" alt="Busca Busca" onerror="this.style.display='none'">
+        <span>Busca Busca</span>
+        <svg viewBox="0 0 24 24" width="15" height="15" style="color:#0095f6; flex-shrink:0;" fill="currentColor">
+          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+        </svg>
+      </div>
+      <p class="pix-footer-copy">© 2026 Busca Busca. Todos os direitos reservados.</p>
+      <p class="pix-footer-copy">Compra segura e protegida</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // ===== 1. Bolinhas de Carregamento rápidas (850ms) + Tags do Funil no Clarity =====
+    (function initTiktokLoaderAndPixels() {
+      try {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } catch (e) {
+        window.scrollTo(0, 0);
+      }
+      try {
+        if (typeof window.clarity === 'function') {
+          window.clarity('set', 'etapa_funil', 'pagamento_pix');
+          window.clarity('event', 'funil_pagamento_pix');
+        }
+      } catch (eCl) { }
+      setTimeout(function () {
+        var loader = document.getElementById('tiktok-loader');
+        if (loader) loader.style.display = 'none';
+      }, 850);
+    })();
+
+    // ===== 2. Matriz 21x21 da prévia borrada do QR (idêntica à referência) =====
+    (function buildSkeletonQrMatrix() {
+      var matrix = [
+        '111111101001101111111',
+        '100000101110101000001',
+        '101110101010101011101',
+        '101110100101001011101',
+        '101110101101101011101',
+        '100000101011101000001',
+        '111111101010101111111',
+        '000000001101000000000',
+        '101011110010111001101',
+        '011100011101001110010',
+        '110011101010110101101',
+        '001101010111001011010',
+        '101110111000111010111',
+        '000000001011100101000',
+        '111111101100101011010',
+        '100000101011011100101',
+        '101110101100110011110',
+        '101110100011101001011',
+        '101110101101010110100',
+        '100000101010111001101',
+        '111111101101001110011'
+      ];
+      var gridEl = document.getElementById('qr-skeleton-grid');
+      if (!gridEl) return;
+      var cells = '';
+      for (var r = 0; r < matrix.length; r++) {
+        for (var c = 0; c < matrix[r].length; c++) {
+          cells += '<span class="' + (matrix[r][c] === '1' ? 'qr-cell-dark' : 'qr-cell-light') + '"></span>';
+        }
+      }
+      gridEl.innerHTML = cells;
+    })();
+
+    // ===== 3. Utilitários =====
+    function formatarMoeda(valor) {
+      var n = Number(valor) || 0;
+      return n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function escapeHtml(str) {
+      return String(str == null ? '' : str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function formatPhoneBr(raw) {
+      if (typeof raw !== 'string') return '';
+      var s = raw.replace(/\D/g, '');
+      if ((s.length === 12 || s.length === 13) && s.indexOf('55') === 0) {
+        s = s.slice(2);
+      }
+      if (s.length === 11) {
+        return s.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+      }
+      if (s.length === 10) {
+        return s.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+      }
+      return raw;
+    }
+
+    function normalizeImgPath(imgSrc) {
+      var src = String(imgSrc || '').trim();
+      if (!src) return '/tkk-pedido/oferta-assets/produto-2.webp';
+      if (src.indexOf('http://') === 0 || src.indexOf('https://') === 0 || src.indexOf('data:') === 0) {
+        return src;
+      }
+      if (src.indexOf('//') === 0) {
+        return 'https:' + src;
+      }
+      while (src.indexOf('../') === 0) {
+        src = src.slice(3);
+      }
+      if (src.indexOf('./') === 0) {
+        src = src.slice(2);
+      }
+      if (src.indexOf('/') === 0) {
+        return src;
+      }
+      return '/' + src;
+    }
+
+    function parsePriceNum(val) {
+      if (typeof val === 'number') return val;
+      if (!val) return 0;
+      var s = String(val).trim();
+      if (s.indexOf(',') !== -1 && s.indexOf('.') !== -1) {
+        return parseFloat(s.replace(/\./g, '').replace(',', '.')) || 0;
+      }
+      return parseFloat(s.replace(',', '.')) || 0;
+    }
+
+    // ===== 4. Estado da Transação e Dados do Pedido =====
+    var activePixCode = sessionStorage.getItem('sealpay_pix_code') || '';
+    var activePixTxid = sessionStorage.getItem('sealpay_txid') || '';
+    var activePixQrBase64 = sessionStorage.getItem('sealpay_qr_code_base64') || '';
+    var activePixTotal = parseFloat(sessionStorage.getItem('sealpay_total') || '0');
+    var activePixDeadline = 0;
+    var pixPaymentDisplayed = false;
+    var lastPendingReq = null;
+
+    try {
+      var rawPending = sessionStorage.getItem('pending_sealpay_request');
+      if (rawPending) lastPendingReq = JSON.parse(rawPending);
+    } catch (e) { lastPendingReq = null; }
+
+    var savedPreview = null;
+    try {
+      var rawPrev = sessionStorage.getItem('sealpay_order_preview');
+      if (rawPrev) savedPreview = JSON.parse(rawPrev);
+    } catch (e) { savedPreview = null; }
+
+    if (!window.tkkIsParadiseTxid(activePixTxid)) {
+      activePixTxid = '';
+      activePixCode = '';
+      activePixQrBase64 = '';
+    }
+    try {
+      var savedExpiry = JSON.parse(sessionStorage.getItem('sealpay_pix_expiration') || 'null');
+      if (savedExpiry && savedExpiry.txid === activePixTxid) {
+        activePixDeadline = Date.parse(savedExpiry.expiresAt) || 0;
+      }
+    } catch (e) { }
+
+    // Fallback: recupera último pedido salvo caso o usuário abra por "Meus Pedidos" ou atualize a aba
+    function resolveOrderItems() {
+      if (lastPendingReq && lastPendingReq.preview && Array.isArray(lastPendingReq.preview.checkoutItems) && lastPendingReq.preview.checkoutItems.length) {
+        return lastPendingReq.preview.checkoutItems;
+      }
+      if (savedPreview && Array.isArray(savedPreview.checkoutItems) && savedPreview.checkoutItems.length) {
+        return savedPreview.checkoutItems;
+      }
+      try {
+        var pedidos = JSON.parse(localStorage.getItem('famosinhos_pedidos') || '[]');
+        if (Array.isArray(pedidos) && pedidos.length > 0) {
+          var match = activePixTxid
+            ? pedidos.find(function (p) { return p.txid === activePixTxid; })
+            : pedidos[0];
+          if (match && Array.isArray(match.itens) && match.itens.length) {
+            if (!activePixCode && !lastPendingReq && window.tkkIsParadiseTxid(match.txid)) {
+              activePixCode = match.pix_code || '';
+              activePixTxid = match.txid || '';
+              activePixQrBase64 = match.qr_code_base64 || '';
+              activePixDeadline = Date.parse(match.expires_at || '') || activePixDeadline;
+            }
+            if (!(activePixTotal > 0) && match.total) {
+              activePixTotal = parseFloat(match.total) || 0;
+            }
+            return match.itens;
+          }
+        }
+      } catch (e) { }
+      try {
+        var ck = JSON.parse(localStorage.getItem('famosinhos_checkout_cart') || '[]');
+        if (Array.isArray(ck) && ck.length) return ck;
+      } catch (e) { }
+      try {
+        var c = JSON.parse(localStorage.getItem('famosinhos_cart') || '[]');
+        if (Array.isArray(c) && c.length) return c;
+      } catch (e) { }
+      return [{
+        id: 109,
+        nome: 'Bicicleta Elétrica GTS Super Power 500W',
+        img: '/tkk-pedido/oferta-assets/produto-2.webp',
+        preco: 129.84,
+        qty: 1,
+        variacao: 'Cor: Branco'
+      }];
+    }
+
+    function resolveDeliveryData() {
+      if (lastPendingReq && lastPendingReq.preview && lastPendingReq.preview.delivery) {
+        return lastPendingReq.preview.delivery;
+      }
+      if (savedPreview && savedPreview.delivery) {
+        return savedPreview.delivery;
+      }
+      var nome = (localStorage.getItem('user_nome') || '').trim();
+      var tel = (localStorage.getItem('user_tel') || '').trim();
+      var rua = (localStorage.getItem('user_rua') || '').trim();
+      var numero = (localStorage.getItem('user_numero') || '').trim();
+      var bairro = (localStorage.getItem('user_bairro') || '').trim();
+      var cidade = (localStorage.getItem('user_cidade') || '').trim();
+      var estado = (localStorage.getItem('user_estado') || '').trim();
+      var cep = (localStorage.getItem('user_cep') || '').trim();
+      if (!nome && !rua) return null;
+      return {
+        name: nome || 'Cliente',
+        phone: tel,
+        address: {
+          street: rua,
+          number: numero,
+          neighborhood: bairro,
+          city: cidade,
+          state: estado,
+          cep: cep
+        }
+      };
+    }
+
+    // ===== 5. Renderiza "Resumo do pedido", "Dados de entrega" e Banner de Moedas =====
+    function renderSummaryAndDelivery() {
+      var items = resolveOrderItems();
+      var computedSum = 0;
+      items.forEach(function (it) {
+        computedSum += parsePriceNum(it.preco) * (parseInt(it.qty, 10) || 1);
+      });
+      if (!(activePixTotal > 0)) {
+        activePixTotal = computedSum;
+      }
+
+      // Atualiza valor total do card de status
+      var totalPriceEl = document.getElementById('pix-total-price');
+      if (totalPriceEl) {
+        totalPriceEl.textContent = 'R$ ' + formatarMoeda(activePixTotal);
+      }
+
+      // Verifica se é pedido da Bicicleta GTS (109) para ajustar texto do banner promocional
+      var hasGts = items.some(function (it) {
+        return Number(it.id) === 109 || String(it.nome || '').toLowerCase().indexOf('bicicleta elétrica gts') !== -1;
+      });
+      var promoTitleEl = document.getElementById('promo-timer-title');
+      var promoDescEl = document.getElementById('promo-timer-desc');
+      if (promoTitleEl && promoDescEl) {
+        if (hasGts) {
+          promoTitleEl.textContent = 'Desconto liberado pelas suas 1.780 moedas';
+          promoDescEl.textContent = 'Você conquistou uma condição especial ao trocar suas moedas.';
+        } else {
+          promoTitleEl.textContent = 'Desconto exclusivo reservado no seu pedido';
+          promoDescEl.textContent = 'Você conquistou uma condição promocional por tempo limitado.';
+        }
+      }
+
+      // Renderiza itens no Resumo do pedido
+      var summaryContainer = document.getElementById('summary-items-container');
+      if (summaryContainer && items.length > 0) {
+        var first = items[0];
+        var firstQty = parseInt(first.qty, 10) || 1;
+        var firstLineTotal = parsePriceNum(first.preco) * firstQty;
+        var variantParts = [];
+        if (first.variacao) variantParts.push(first.variacao);
+        if (firstQty > 1) variantParts.push('Quantidade: ' + firstQty);
+        var variantLabel = variantParts.join(' • ');
+
+        var html = '' +
+          '<div class="summary-main-item">' +
+          '<img class="summary-main-img" src="' + escapeHtml(normalizeImgPath(first.img)) + '" alt="' + escapeHtml(first.nome || 'Produto') + '" onerror="this.src=\'/tkk-pedido/oferta-assets/produto-2.webp\'" />' +
+          '<div class="summary-main-info">' +
+          '<p class="summary-main-name">' + escapeHtml(first.nome || 'Produto') + '</p>' +
+          (variantLabel ? '<p class="summary-main-variant">' + escapeHtml(variantLabel) + '</p>' : '') +
+          '<p class="summary-main-price">R$ ' + formatarMoeda(items.length > 1 ? firstLineTotal : activePixTotal) + '</p>' +
+          '</div>' +
+          '</div>';
+
+        if (items.length > 1) {
+          html += '<div class="summary-extra-wrap" data-testid="payment-order-bumps">';
+          for (var idx = 1; idx < items.length; idx++) {
+            var extra = items[idx];
+            var extraQty = parseInt(extra.qty, 10) || 1;
+            var extraTotal = parsePriceNum(extra.preco) * extraQty;
+            html += '' +
+              '<div class="summary-extra-item">' +
+              '<img class="summary-extra-img" src="' + escapeHtml(normalizeImgPath(extra.img)) + '" alt="' + escapeHtml(extra.nome || 'Oferta') + '" onerror="this.src=\'/logo-busca-busca.png\'" />' +
+              '<div style="flex:1; min-width:0;">' +
+              '<p class="summary-extra-name">' + escapeHtml(extra.nome || '') + '</p>' +
+              '<p class="summary-extra-qty">Quantidade: ' + extraQty + '</p>' +
+              '<p class="summary-extra-price">R$ ' + formatarMoeda(extraTotal) + '</p>' +
+              '</div>' +
+              '</div>';
+          }
+          html += '' +
+            '<div class="summary-total-row">' +
+            '<span>Total do pedido</span>' +
+            '<span class="summary-total-val">R$ ' + formatarMoeda(activePixTotal) + '</span>' +
+            '</div>' +
+            '</div>';
+        }
+
+        summaryContainer.innerHTML = html;
+      }
+
+      // Renderiza Dados de entrega
+      var deliveryContainer = document.getElementById('delivery-info-container');
+      var delivery = resolveDeliveryData();
+      if (deliveryContainer) {
+        if (delivery) {
+          var addr = delivery.address || {};
+          var addrLine = [addr.street, addr.number, addr.neighborhood, addr.city, addr.state, addr.cep]
+            .filter(function (v) { return v && String(v).trim(); })
+            .join(', ');
+          deliveryContainer.innerHTML = '' +
+            '<div class="delivery-fields">' +
+            '<div>' +
+            '<p class="delivery-field-label">Nome</p>' +
+            '<p class="delivery-field-value">' + escapeHtml(delivery.name || '-') + '</p>' +
+            '</div>' +
+            (delivery.phone ? (
+              '<div>' +
+              '<p class="delivery-field-label">Telefone</p>' +
+              '<p class="delivery-field-value">' + escapeHtml(formatPhoneBr(delivery.phone)) + '</p>' +
+              '</div>'
+            ) : '') +
+            '<div>' +
+            '<p class="delivery-field-label">Endereço</p>' +
+            '<p class="delivery-field-value">' + escapeHtml(addrLine || 'Endereço não informado') + '</p>' +
+            '</div>' +
+            '</div>';
+        } else {
+          deliveryContainer.innerHTML = '<p class="delivery-field-value" style="color:#4b5563;">Dados de entrega não disponíveis para este pagamento</p>';
+        }
+      }
+    }
+
+    // ===== 6. Controle visual dos 3 estados do PIX =====
+    function setTransactionUiState(mode, errorMsg) {
+      var genCard = document.getElementById('pix-generating-card');
+      var errCard = document.getElementById('pix-error-card');
+      var readyCard = document.getElementById('pix-ready-card');
+      var statusHeading = document.getElementById('payment-status-heading');
+      var expireBlock = document.getElementById('pix-expiration-block');
+      var promo = document.querySelector('[data-testid="coin-promotion-timer"]');
+      var expired = mode === 'expired';
+      var showError = mode === 'error' || expired;
+      pixPaymentDisplayed = mode === 'ready';
+
+      if (genCard) genCard.style.display = mode === 'generating' ? 'flex' : 'none';
+      if (errCard) errCard.style.display = showError ? 'block' : 'none';
+      if (readyCard) readyCard.style.display = mode === 'ready' ? 'block' : 'none';
+
+      if (statusHeading) {
+        var labels = {
+          paid: 'Pagamento Pix confirmado',
+          expired: 'Pix indisponível',
+          generating: 'Gerando sua transação Pix'
+        };
+        statusHeading.textContent = labels[mode] || 'Aguardando o pagamento';
+      }
+      if (promo) promo.style.display = mode === 'paid' ? 'none' : '';
+      if (expireBlock) {
+        expireBlock.style.display = mode === 'ready' && activePixDeadline ? 'block' : 'none';
+      }
+      if (showError) {
+        var recheckBtn = document.getElementById('btn-recheck-tx');
+        var generateBtn = document.getElementById('btn-generate-tx');
+        var errorTitle = document.getElementById('pix-error-title');
+        if (errorTitle) errorTitle.textContent = expired ? 'Este Pix não está mais disponível' : 'Não foi possível liberar o QR Code Pix';
+        if (recheckBtn) recheckBtn.style.display = activePixTxid ? 'block' : 'none';
+        if (generateBtn) generateBtn.style.display = activePixTxid || expired ? 'none' : 'block';
+        if (errorMsg) {
+          var errTextEl = document.getElementById('pix-error-text');
+          if (errTextEl) errTextEl.textContent = errorMsg;
+        }
+      }
+    }
+
+    function paymentHasEnded(data) {
+      var status = String(data.status || '').toLowerCase();
+      var deadline = Date.parse(data.expires_at || '');
+      if (Number.isFinite(deadline)) {
+        activePixDeadline = deadline;
+        sessionStorage.setItem('sealpay_pix_expiration', JSON.stringify({txid: activePixTxid, expiresAt: data.expires_at}));
+      }
+      return ['expired', 'cancelled', 'canceled', 'rejected', 'failed', 'refunded', 'chargeback'].indexOf(status) !== -1 ||
+        (activePixDeadline > 0 && activePixDeadline <= Date.now());
+    }
+
+    function hideUnavailablePix() {
+      clearInterval(_pollingInterval);
+      _pollingInterval = null;
+      activePixCode = '';
+      activePixQrBase64 = '';
+      sessionStorage.removeItem('sealpay_pix_code');
+      sessionStorage.removeItem('sealpay_qr_code_base64');
+      var codeInput = document.getElementById('pix-code-text');
+      var codePreview = document.getElementById('pix-code-preview');
+      var qrWrap = document.getElementById('pix-qr-wrap');
+      if (codeInput) codeInput.value = '';
+      if (codePreview) codePreview.textContent = '';
+      if (qrWrap) qrWrap.replaceChildren();
+      if (qrWrap) qrWrap.style.display = 'none';
+      setTransactionUiState('expired', 'Se já pagou, toque em "Verificar código novamente". Para gerar outro Pix, volte ao checkout.');
+    }
+
+    function firePlaceAnOrderOnce(txid) {
+      if (!txid) return;
+      try {
+        var sentKey = 'ttq_po_sent_' + txid;
+        if (sessionStorage.getItem(sentKey) === '1') return;
+        sessionStorage.setItem(sentKey, '1');
+        var valorReais = activePixTotal > 0 ? activePixTotal : 0;
+        var trackItems = (lastPendingReq && lastPendingReq.preview && lastPendingReq.preview.checkoutItems) || resolveOrderItems();
+        if (typeof window.ttqPlaceAnOrder === 'function') {
+          window.ttqPlaceAnOrder(valorReais, txid, trackItems);
+        }
+      } catch (eTtq) { }
+    }
+
+    function renderReadyPixCard(code, base64) {
+      var loaderDone = document.getElementById('tiktok-loader');
+      if (loaderDone) loaderDone.style.display = 'none';
+
+      var qrWrap = document.getElementById('pix-qr-wrap');
+      var codePreview = document.getElementById('pix-code-preview');
+      var hiddenInput = document.getElementById('pix-code-text');
+
+      if (hiddenInput) hiddenInput.value = code || '';
+      if (codePreview) codePreview.textContent = code || '';
+      if (qrWrap) {
+        qrWrap.replaceChildren();
+        var inlineQr = typeof base64 === 'string' && /^data:image\/(?:png|jpeg|jpg);base64,/.test(base64);
+        if (inlineQr) {
+          var qrImg = document.createElement('img');
+          qrImg.src = base64;
+          qrImg.alt = 'QR Code Pix';
+          qrImg.className = 'pix-ready-qr-img';
+          qrWrap.appendChild(qrImg);
+        } else if (code && typeof QRCode === 'function') {
+          new QRCode(qrWrap, {
+            text: code,
+            width: 192,
+            height: 192,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.M
+          });
+          var generatedQr = qrWrap.querySelector('img');
+          if (generatedQr) {
+            generatedQr.alt = 'QR Code Pix';
+            generatedQr.className = 'pix-ready-qr-img';
+          }
+        }
+        qrWrap.style.display = qrWrap.childElementCount ? 'flex' : 'none';
+      }
+
+      setTransactionUiState('ready');
+    }
+
+    // ===== 7. Geração assíncrona do Pix =====
+    var isGeneratingPix = false;
+
+    async function executePendingPixRequest(reqObj) {
+      if (!reqObj || !reqObj.payload || isGeneratingPix) return;
+      isGeneratingPix = true;
+      setTransactionUiState('generating');
+
+      // Dispara AddPaymentInfo ao iniciar pagamento PIX (sem erro mesmo se o gateway demorar)
+      try {
+        if (!window.__ttqAddPaySent) {
+          window.__ttqAddPaySent = true;
+          var payVal = (Number(reqObj.payload.amount) || 0) / 100;
+          var payItems = (reqObj.preview && reqObj.preview.checkoutItems) || resolveOrderItems();
+          var fireAddPay = function () {
+            if (typeof window.ttqAddPaymentInfo === 'function') {
+              window.ttqAddPaymentInfo(payVal, payItems);
+            }
+          };
+          if (typeof window.ttqAddPaymentInfo === 'function') fireAddPay();
+          else window.addEventListener('DOMContentLoaded', fireAddPay, { once: true });
+        }
+      } catch (eAp) { }
+
+      try {
+        var resp = await fetch('/tkk-pedido/api/create-pix.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(reqObj.payload)
+        });
+
+        var data = null;
+        try { data = await resp.json(); } catch (eJson) { data = null; }
+
+        if (data && (data.code === 'price_mismatch' || data.code === 'amount_mismatch')) {
+          sessionStorage.removeItem('pending_sealpay_request');
+          goBackToCheckout(true);
+          return;
+        }
+
+        if (!resp.ok || !data || (!data.pix_code && !data.txid)) {
+          var apiMsg = (data && (data.details || data.error || data.message)) || 'Não foi possível gerar o PIX. Verifique seus dados e tente novamente.';
+          throw new Error(apiMsg);
+        }
+
+        activePixCode = data.pix_code || '';
+        activePixQrBase64 = data.qr_code_base64 || '';
+        activePixTxid = data.txid || '';
+        var returnedCents = Number(data.amount);
+        var totalVal = (Number.isFinite(returnedCents) && returnedCents >= 100)
+          ? (Math.round(returnedCents) / 100)
+          : parseFloat((reqObj.preview && reqObj.preview.total) || ((Number(reqObj.payload.amount) || 0) / 100) || activePixTotal || 0);
+        activePixTotal = totalVal;
+
+        // Sincroniza itens e resumo na tela com os centavos exatos do PIX gerado
+        var rawItems = (reqObj.preview && Array.isArray(reqObj.preview.checkoutItems) && reqObj.preview.checkoutItems.length)
+          ? reqObj.preview.checkoutItems
+          : resolveOrderItems();
+        var bumpsSum = 0;
+        for (var bi = 1; bi < rawItems.length; bi++) {
+          bumpsSum += parsePriceNum(rawItems[bi].preco) * (parseInt(rawItems[bi].qty, 10) || 1);
+        }
+        var itensSalvar = rawItems.map(function (i, idx) {
+          var copy = {
+            id: i.id,
+            nome: i.nome,
+            img: i.img,
+            preco: i.preco,
+            qty: i.qty || 1,
+            variacao: i.variacao || '',
+            isBump: Boolean(i.isBump)
+          };
+          if (idx === 0 && totalVal > bumpsSum) {
+            var q0 = Math.max(1, parseInt(copy.qty, 10) || 1);
+            copy.preco = Number(((totalVal - bumpsSum) / q0).toFixed(2));
+          }
+          return copy;
+        });
+
+        if (reqObj.preview) {
+          reqObj.preview.total = totalVal.toFixed(2);
+          reqObj.preview.checkoutItems = itensSalvar;
+          try { sessionStorage.setItem('sealpay_order_preview', JSON.stringify(reqObj.preview)); } catch (ePrev) { }
+        } else if (savedPreview) {
+          savedPreview.total = totalVal.toFixed(2);
+          savedPreview.checkoutItems = itensSalvar;
+          try { sessionStorage.setItem('sealpay_order_preview', JSON.stringify(savedPreview)); } catch (ePrev2) { }
+        }
+
+        try {
+          var metaRaw = localStorage.getItem('gts_order_meta');
+          if (metaRaw) {
+            var metaObj = JSON.parse(metaRaw);
+            if (metaObj && typeof metaObj === 'object') {
+              metaObj.frontTotal = Number(totalVal.toFixed(2));
+              metaObj.items = itensSalvar;
+              localStorage.setItem('gts_order_meta', JSON.stringify(metaObj));
+            }
+          }
+        } catch (eMetaSync) { }
+
+        renderSummaryAndDelivery();
+
+        if (activePixCode) {
+          sessionStorage.setItem('sealpay_pix_code', activePixCode);
+          sessionStorage.setItem('sealpay_qr_code_base64', activePixQrBase64);
+          sessionStorage.removeItem('pending_sealpay_request');
+          firePlaceAnOrderOnce(activePixTxid);
+        }
+        sessionStorage.setItem('sealpay_txid', activePixTxid);
+        sessionStorage.setItem('sealpay_total', totalVal.toFixed(2));
+        if (activePixTxid) localStorage.setItem('last_main_txid', activePixTxid);
+
+        // Salva no histórico "Meus Pedidos" (famosinhos_pedidos)
+        var novoPedido = {
+          txid: activePixTxid || ('offline_' + Date.now()),
+          pix_code: activePixCode,
+          qr_code_base64: activePixQrBase64,
+          expires_at: data.expires_at || '',
+          total: totalVal.toFixed(2),
+          data: new Date().toLocaleDateString('pt-BR') + ' às ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+          itens: itensSalvar.map(function (i) {
+            return {
+              id: i.id,
+              nome: i.nome,
+              img: i.img,
+              preco: i.preco,
+              qty: i.qty || 1,
+              variacao: i.variacao || ''
+            };
+          })
+        };
+        var pedidos = [];
+        try { pedidos = JSON.parse(localStorage.getItem('famosinhos_pedidos') || '[]'); } catch (eP) { pedidos = []; }
+        if (!Array.isArray(pedidos)) pedidos = [];
+        pedidos.unshift(novoPedido);
+        localStorage.setItem('famosinhos_pedidos', JSON.stringify(pedidos));
+
+        if (paymentHasEnded(data) && !data.paid && data.status !== 'paid') {
+          hideUnavailablePix();
+          return;
+        }
+        if (activePixCode) {
+          renderReadyPixCard(activePixCode, activePixQrBase64);
+        } else {
+          setTransactionUiState('generating');
+        }
+        startTimers();
+        if (activePixTxid) iniciarPolling(activePixTxid);
+      } catch (err) {
+        console.error('[PIX] Erro ao gerar cobrança:', err);
+        setTransactionUiState('error', (err && err.message) ? err.message : 'Não foi possível gerar o PIX. Tente novamente.');
+      } finally {
+        isGeneratingPix = false;
+      }
+    }
+
+    function goBackToCheckout(replaceHistory) {
+      var items = resolveOrderItems();
+      var isGts = sessionStorage.getItem('from_gts_funnel') === '1' || items.some(function (it) {
+        return Number(it.id) === 109 || String(it.nome || '').toLowerCase().indexOf('bicicleta elétrica gts') !== -1;
+      });
+      var target = (isGts ? '/tkk-pedido/oferta/checkout.html' : '/tkk-pedido/pages/resumo.html') +
+        (window.location.search || '') + (window.location.hash || '');
+      if (replaceHistory === true) window.location.replace(target);
+      else window.location.href = target;
+    }
+
+    function recheckExistingTx() {
+      if (activePixTxid) {
+        setTransactionUiState('generating');
+        iniciarPolling(activePixTxid);
+      } else {
+        retryGeneratePix();
+      }
+    }
+
+    function retryGeneratePix() {
+      if (activePixTxid) {
+        recheckExistingTx();
+        return;
+      }
+      activePixCode = '';
+      activePixQrBase64 = '';
+      activePixTxid = '';
+      sessionStorage.removeItem('sealpay_pix_code');
+      sessionStorage.removeItem('sealpay_qr_code_base64');
+      sessionStorage.removeItem('sealpay_txid');
+      if (lastPendingReq) {
+        executePendingPixRequest(lastPendingReq);
+      } else {
+        goBackToCheckout();
+      }
+    }
+
+    // ===== 8. Copiar Código PIX (feedback verde "Copiado!" por 2000ms igual à referência) =====
+    var copyFeedbackTimer = null;
+    function copyPixCode() {
+      var code = activePixCode || (document.getElementById('pix-code-text') ? document.getElementById('pix-code-text').value : '');
+      if (!code) return;
+
+      var btn = document.getElementById('btn-copy-pix');
+      var icon = document.getElementById('btn-copy-icon');
+      var label = document.getElementById('btn-copy-label');
+
+      var onCopied = function () {
+        if (!btn) return;
+        btn.classList.add('copied-success');
+        if (icon) icon.className = 'fas fa-check';
+        if (label) label.textContent = 'Copiado!';
+        if (copyFeedbackTimer) clearTimeout(copyFeedbackTimer);
+        copyFeedbackTimer = setTimeout(function () {
+          btn.classList.remove('copied-success');
+          if (icon) icon.className = 'fas fa-copy';
+          if (label) label.textContent = 'Copiar';
+        }, 2000);
+      };
+
+      var fallbackCopy = function () {
+        var inp = document.getElementById('pix-code-text');
+        if (!inp) return;
+        inp.style.position = 'fixed';
+        inp.style.opacity = '0';
+        inp.select();
+        inp.setSelectionRange(0, 99999);
+        try { document.execCommand('copy'); } catch (e) { }
+        inp.style.position = 'absolute';
+        onCopied();
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(onCopied).catch(fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+    }
+
+    // ===== 9. Validade da cobrança e cronômetro da promoção =====
+    var timersInterval = null;
+    var promoRemaining = 600;  // 10:00
+
+    function formatHhMmSs(sec) {
+      var h = Math.floor(sec / 3600);
+      var m = Math.floor((sec % 3600) / 60);
+      var s = sec % 60;
+      return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+    }
+
+    function formatMmSs(sec) {
+      var m = Math.floor(sec / 60);
+      var s = sec % 60;
+      return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+    }
+
+    function renderPixDeadline() {
+      if (!activePixDeadline) return;
+      var target = new Date(activePixDeadline);
+      var dia = target.getDate();
+      var mes = target.toLocaleString('pt-BR', { month: 'short' });
+      var ano = target.getFullYear();
+      var hora = target.getHours();
+      var min = String(target.getMinutes()).padStart(2, '0');
+      var el = document.getElementById('pix-deadline-date');
+      if (el) {
+        el.textContent = hora + ':' + min + ', ' + dia + ' de ' + mes + ' ' + ano;
+      }
+      var expireEl = document.getElementById('pix-countdown');
+      if (expireEl) expireEl.textContent = formatHhMmSs(Math.max(0, Math.ceil((activePixDeadline - Date.now()) / 1000)));
+    }
+
+    function startTimers() {
+      renderPixDeadline();
+      if (timersInterval) clearInterval(timersInterval);
+      var promoEl = document.getElementById('coin-promotion-countdown');
+      if (promoEl) promoEl.textContent = formatMmSs(promoRemaining);
+
+      timersInterval = setInterval(function () {
+        promoRemaining = Math.max(0, promoRemaining - 1);
+        renderPixDeadline();
+        if (promoEl) promoEl.textContent = formatMmSs(promoRemaining);
+      }, 1000);
+    }
+
+    // ===== 10. Polling de Status do Pagamento + Verificação ao retornar do app do banco =====
+    var _pollingInterval = null;
+    var _isCheckingStatus = false;
+
+    function iniciarPolling(txid) {
+      if (!txid || String(txid).indexOf('offline_') === 0) return;
+      if (_pollingInterval) clearInterval(_pollingInterval);
+      var _emptyCodePolls = 0;
+
+      var checar = async function () {
+        if (_isCheckingStatus) return;
+        _isCheckingStatus = true;
+        try {
+          var resp = await fetch('/tkk-pedido/api/payment-status.php?txid=' + encodeURIComponent(txid), { cache: 'no-store' });
+          var data = await resp.json();
+          if (resp.status === 404 && data && data.code === 'order_not_found') {
+            clearInterval(_pollingInterval);
+            _pollingInterval = null;
+            setTransactionUiState('error', 'Pedido não encontrado. Volte ao checkout para revisar seus dados.');
+            return;
+          }
+          if (!resp.ok || !data || data.txid !== txid) throw new Error('Não foi possível consultar o pedido.');
+          var status = String(data.status || '').toLowerCase();
+          var pago = status === 'paid' || status === 'approved' || data.paid === true;
+          if (!pago && paymentHasEnded(data)) {
+            hideUnavailablePix();
+            return;
+          }
+          renderPixDeadline();
+
+          // A consulta da Paradise pode retornar apenas o status, sem o código criado.
+          var pixCode = data.pix_code || activePixCode;
+          var qrBase64 = data.qr_code_base64 || (pixCode === activePixCode ? activePixQrBase64 : '');
+          if (!pago && pixCode && (!pixPaymentDisplayed || activePixCode !== pixCode || activePixQrBase64 !== qrBase64)) {
+            activePixCode = pixCode;
+            activePixQrBase64 = qrBase64;
+            _emptyCodePolls = 0;
+            sessionStorage.setItem('sealpay_pix_code', activePixCode);
+            sessionStorage.setItem('sealpay_qr_code_base64', activePixQrBase64);
+            sessionStorage.removeItem('pending_sealpay_request');
+            firePlaceAnOrderOnce(txid);
+            try {
+              var pList = JSON.parse(localStorage.getItem('famosinhos_pedidos') || '[]');
+              if (Array.isArray(pList)) {
+                for (var pi = 0; pi < pList.length; pi++) {
+                  if (pList[pi] && pList[pi].txid === txid) {
+                    pList[pi].pix_code = activePixCode;
+                    pList[pi].qr_code_base64 = activePixQrBase64;
+                  }
+                }
+                localStorage.setItem('famosinhos_pedidos', JSON.stringify(pList));
+              }
+            } catch (eUpd) { }
+            renderReadyPixCard(activePixCode, activePixQrBase64);
+          } else if (!pago && !pixCode) {
+            _emptyCodePolls++;
+            var genSubEl = document.querySelector('#pix-generating-card .generating-sub');
+            if (genSubEl && _emptyCodePolls >= 3) {
+              genSubEl.textContent = 'Sincronizando QR Code e Copia e Cola com a operadora PIX...';
+            }
+            if (_emptyCodePolls >= 30) {
+              clearInterval(_pollingInterval);
+              _pollingInterval = null;
+              setTransactionUiState(
+                'error',
+                'Seu pedido foi registrado e a operadora ainda está liberando o código Pix. Toque em "Verificar código novamente" para consultar o mesmo pedido.'
+              );
+              return;
+            }
+          }
+
+          if (pago) {
+            clearInterval(_pollingInterval);
+            _pollingInterval = null;
+            clearInterval(timersInterval);
+            setTransactionUiState('paid');
+            try {
+              var valorPago = parseFloat(sessionStorage.getItem('sealpay_total') || activePixTotal || 0);
+              var itensPago = resolveOrderItems();
+              var previousPayment = JSON.parse(localStorage.getItem('gts_paid_front') || 'null');
+              localStorage.setItem('gts_paid_front', JSON.stringify({ txid: txid, amount: valorPago, paidAt: Date.now() }));
+              if ((!previousPayment || previousPayment.txid !== txid) && typeof window.ttqCompletePayment === 'function') {
+                window.ttqCompletePayment(valorPago, txid, itensPago);
+              }
+            } catch (ePix) {
+              console.error('[TikTok Pixel] Erro ao disparar CompletePayment no pix.html:', ePix);
+            }
+          }
+        } catch (err) {
+          console.error('[Status Pagamento] Erro no polling:', err);
+        } finally {
+          _isCheckingStatus = false;
+        }
+      };
+
+      checar();
+      _pollingInterval = setInterval(checar, 15000);
+
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'visible' && _pollingInterval) {
+          checar();
+        }
+      });
+    }
+
+    // ===== 11. Inicialização da Página =====
+    renderSummaryAndDelivery();
+    var checkoutPayload = lastPendingReq && lastPendingReq.payload;
+    if (!activePixTxid && (!checkoutPayload || typeof checkoutPayload !== 'object' || Array.isArray(checkoutPayload))) {
+      sessionStorage.removeItem('pending_sealpay_request');
+      goBackToCheckout(true);
+    } else {
+      startTimers();
+      if (activePixTxid) {
+        if (activePixCode && !paymentHasEnded({status: 'pending'})) {
+          renderReadyPixCard(activePixCode, activePixQrBase64);
+        } else {
+          setTransactionUiState('generating');
+        }
+        iniciarPolling(activePixTxid);
+      } else {
+        executePendingPixRequest(lastPendingReq);
+      }
+    }
+  </script>
+
+
+
+<script data-presence="storefront">(function(){if(window.__presencePing)return;window.__presencePing=1;window.__funnelStep=window.__funnelStep||"";function stepFromPath(path){var p=String(path||"").toLowerCase();if(/\/(pagamento|pix)(?:\.html)?(\/|$)/.test(p))return "pix";if(/\/checkout(?:\.html)?(\/|$)/.test(p))return "checkout";if(/\/(cart|carrinho)(?:\.html)?(\/|$)/.test(p))return "cart";if(/\/products?\//.test(p))return "sku";return "product";}window.setFunnelStep=function(step){var s=String(step||"product").toLowerCase();if(["product","sku","cart","checkout","pix","paid"].indexOf(s)===-1)s="product";window.__funnelStep=s;try{ping();}catch(e){}};var sid="";try{sid=localStorage.getItem("online_sid_v2")||sessionStorage.getItem("online_sid")||"";if(!sid)sid="s"+Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem("online_sid_v2",sid);sessionStorage.setItem("online_sid",sid);}catch(e){sid="s"+Math.random().toString(36).slice(2)+Date.now().toString(36);}function storeKey(){return String(location.pathname||"/").split("/").filter(Boolean)[0]||"";}function currentStep(){return window.__funnelStep||stepFromPath(location.pathname);}function ping(){if(document.hidden)return;var page=location.pathname||"/";var host=location.hostname||"";var q="client=1&sid="+encodeURIComponent(sid)+"&page="+encodeURIComponent(page)+"&host="+encodeURIComponent(host)+"&step="+encodeURIComponent(currentStep())+"&store="+encodeURIComponent(storeKey());fetch("/api/online-ping?"+q,{method:"GET",cache:"no-store",mode:"cors",credentials:"omit"}).catch(function(){});}function leave(){var url="/api/online-leave?client=1&sid="+encodeURIComponent(sid)+"&store="+encodeURIComponent(storeKey());try{if(navigator.sendBeacon){navigator.sendBeacon(url);return;}}catch(e){}try{fetch(url,{method:"GET",cache:"no-store",keepalive:true,mode:"cors"}).catch(function(){});}catch(e2){}}ping();setInterval(ping,5000);document.addEventListener("visibilitychange",function(){if(document.hidden)leave();else ping();});window.addEventListener("pageshow",function(event){if(event.persisted)ping();});window.addEventListener("pagehide",leave);window.addEventListener("beforeunload",leave);})();</script></body></html>
